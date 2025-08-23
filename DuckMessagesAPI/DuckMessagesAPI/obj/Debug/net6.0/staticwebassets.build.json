@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "XKnayKllHuFbRS4Ej/GGwjBLoi7eGr+ZP22ggzUUlso=",
+  "Source": "DuckMessagesAPI",
+  "BasePath": "_content/DuckMessagesAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

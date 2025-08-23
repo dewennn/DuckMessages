@@ -1,0 +1,187 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|c:\\users\\derre\\source\\repos\\whatsappclone\\whatsappclone\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|solutionrelative:whatsappclone\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|c:\\users\\derre\\source\\repos\\whatsappclone\\whatsappclone\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|solutionrelative:whatsappclone\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|c:\\users\\derre\\source\\repos\\whatsappclone\\whatsappclone\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|solutionrelative:whatsappclone\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|c:\\users\\derre\\source\\repos\\whatsappclone\\whatsappclone\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|solutionrelative:whatsappclone\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|c:\\users\\derre\\source\\repos\\whatsappclone\\whatsappclone\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|solutionrelative:whatsappclone\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|c:\\users\\derre\\source\\repos\\whatsappclone\\whatsappclone\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|solutionrelative:whatsappclone\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|c:\\users\\derre\\source\\repos\\whatsappclone\\whatsappclone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|solutionrelative:whatsappclone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|c:\\users\\derre\\source\\repos\\whatsappclone\\whatsappclone\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|solutionrelative:whatsappclone\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|c:\\users\\derre\\source\\repos\\whatsappclone\\whatsappclone\\global\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30A63B6E-754F-4A9E-9DDB-43C19FE7BA2C}|WhatsappClone\\WhatsappClone.csproj|solutionrelative:whatsappclone\\global\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\appsettings.json",
+              "RelativeDocumentMoniker": "WhatsappClone\\appsettings.json",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\appsettings.json",
+              "RelativeToolTip": "WhatsappClone\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-11T06:50:35.929Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Program.cs",
+              "RelativeDocumentMoniker": "WhatsappClone\\Program.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Program.cs",
+              "RelativeToolTip": "WhatsappClone\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T06:43:54.973Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Global\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "WhatsappClone\\Global\\ApiResponse.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Global\\ApiResponse.cs",
+              "RelativeToolTip": "WhatsappClone\\Global\\ApiResponse.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAmwFwAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T07:16:43.339Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChatsController.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Controllers\\ChatsController.cs",
+              "RelativeDocumentMoniker": "WhatsappClone\\Controllers\\ChatsController.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Controllers\\ChatsController.cs",
+              "RelativeToolTip": "WhatsappClone\\Controllers\\ChatsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T15:38:37.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "WhatsappClone\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Controllers\\UserController.cs",
+              "RelativeToolTip": "WhatsappClone\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:11:16.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "WhatsappClone\\Interfaces\\IUserService.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "WhatsappClone\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:11:55.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "WhatsappClone\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Services\\UserService.cs",
+              "RelativeToolTip": "WhatsappClone\\Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:12:18.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "WhatsappClone\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "WhatsappClone\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:11:53.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "WhatsappClone\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\WhatsappClone\\WhatsappClone\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "WhatsappClone\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T13:11:59.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
