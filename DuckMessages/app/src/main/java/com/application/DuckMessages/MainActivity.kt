@@ -8,14 +8,18 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.application.DuckMessages.pages.authentication.AuthScreen
-import com.application.DuckMessages.pages.call.CallScreen
+import com.application.DuckMessages.network.RetrofitInstance
+import com.application.DuckMessages.network.repository.AuthRepository
+import com.application.DuckMessages.network.viewmodel.AuthViewModel
+import com.application.DuckMessages.network.viewmodel.AuthViewModelFactory
+import com.application.DuckMessages.pages.authentication.LoginScreen
+import com.application.DuckMessages.pages.authentication.RegisterScreen
 import com.application.DuckMessages.pages.messaging.personalMessage.PersonalMessageScreen
 import com.application.DuckMessages.pages.chat.ChatScreen
-import com.application.DuckMessages.pages.update.UpdateScreen
 import com.application.DuckMessages.ui.theme.DuckMessagesTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,84 +29,72 @@ class MainActivity : ComponentActivity() {
             DuckMessagesTheme {
                 val navController = rememberNavController()
 
+                val authViewModel: AuthViewModel = viewModel(
+                    factory = AuthViewModelFactory(AuthRepository(RetrofitInstance.api))
+                )
+
                 // -- ROUTES --
-                NavHost(navController = navController, startDestination = "auth") {
-                    // AUTH
+                NavHost(navController = navController, startDestination = "login") {
+                    composable("login") {
+                        LoginScreen(
+                            authViewModel = authViewModel,
+                            onNavigateToRegister = {
+                                navController.navigate("register")
+                            },
+                            onLoginSuccess = { userId, displayName ->
+                                navController.navigate("main/$userId/$displayName") {
+                                    popUpTo("login") { inclusive = true }
+                                }
+                            }
+                        )
+                    }
+
+                    composable("register") {
+                        RegisterScreen(
+                            authViewModel = authViewModel,
+                            onNavigateToLogin = {
+                                navController.navigate("login") {
+                                    popUpTo("login") { inclusive = true }
+                                }
+                            }
+                        )
+                    }
+
                     composable(
-                        route = "auth",
+                        route = "main/{userId}/{displayName}",
                         enterTransition = { EnterTransition.None },
                         exitTransition = { ExitTransition.None },
                         popEnterTransition = { EnterTransition.None },
                         popExitTransition = { ExitTransition.None }
-                    ){
-                        AuthScreen ()
+                    ){ backStackEntry ->
+                        val userId = backStackEntry.arguments?.getString("userId") ?: ""
+                        val displayName = backStackEntry.arguments?.getString("displayName") ?: ""
+                        ChatScreen(navController, userId = userId, displayName = displayName)
                     }
 
-                    // HOME
-                    composable(
-                        route = "chats",
-                        enterTransition = { EnterTransition.None },
-                        exitTransition = { ExitTransition.None },
-                        popEnterTransition = { EnterTransition.None },
-                        popExitTransition = { ExitTransition.None }
-                    ){
-                        ChatScreen(navController)
-                    }
-
-                    composable(
-                        route = "updates",
-                        enterTransition = { EnterTransition.None },
-                        exitTransition = { ExitTransition.None },
-                        popEnterTransition = { EnterTransition.None },
-                        popExitTransition = { ExitTransition.None }
-                    ){
-                        UpdateScreen(navController)
-                    }
-
-                    composable(
-                        route = "communities",
-                        enterTransition = { EnterTransition.None },
-                        exitTransition = { ExitTransition.None },
-                        popEnterTransition = { EnterTransition.None },
-                        popExitTransition = { ExitTransition.None }
-                    ){
-                        ChatScreen(navController)
-                    }
-
-                    composable(
-                        route = "calls",
-                        enterTransition = { EnterTransition.None },
-                        exitTransition = { ExitTransition.None },
-                        popEnterTransition = { EnterTransition.None },
-                        popExitTransition = { ExitTransition.None }
-                    ){
-                        CallScreen(navController)
-                    }
-
-                    // INNER LAYERS
                     composable(
                         route = "personal_message",
                         enterTransition = {
                             slideInHorizontally (
-                                initialOffsetX = { it }, // The 'it' is the full width, so it slides in from the far right
+                                initialOffsetX = { it },
                                 animationSpec = tween (350)
                             )
                         },
                         exitTransition = {
                             slideOutHorizontally (
-                                targetOffsetX = { -it }, // Slides out to the far left
+                                targetOffsetX = { -it },
                                 animationSpec = tween(350)
                             )
                         },
                         popEnterTransition = {
                             slideInHorizontally(
-                                initialOffsetX = { -it }, // When coming back, it slides in from the left
+                                initialOffsetX = { -it },
                                 animationSpec = tween(350)
                             )
                         },
                         popExitTransition = {
                             slideOutHorizontally(
-                                targetOffsetX = { it }, // When going back, it slides out to the right
+                                targetOffsetX = { it },
                                 animationSpec = tween(350)
                             )
                         }

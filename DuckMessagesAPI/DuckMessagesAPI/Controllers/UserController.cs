@@ -16,11 +16,11 @@ namespace DuckMessagesAPI.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> GetUser([FromBody] DTO_User_GET_Request request)
+        public async Task<IActionResult> Login([FromBody] DTO_User_Login request)
         {
             try
             {
-                var result = await _service.GetUser(request);
+                var result = await _service.Login(request);
 
                 if (result != null) return StatusCode(200, ApiResponse.GetSuccess(result));
                 else return StatusCode(400, ApiResponse.BadRequest());
@@ -31,11 +31,43 @@ namespace DuckMessagesAPI.Controllers
             }
         }
         [HttpPost("register")]
-        public async Task<IActionResult> CreateUser(DTO_User_POST request)
+        public async Task<IActionResult> Register(DTO_User_Register request)
         {
             try
             {
-                var result = await _service.PostUser(request);
+                var result = await _service.Register(request);
+
+                if (result != null) return StatusCode(200, ApiResponse.GetSuccess(result));
+                else return StatusCode(400, ApiResponse.BadRequest());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ApiResponse.InternalServerError(ex));
+            }
+        }
+        [HttpGet("friend")]
+        public async Task<IActionResult> GetFriends([FromQuery] Guid userId)
+        {
+            try
+            {
+                var result = await _service.GetFriends(userId);
+
+                if (result != null) return StatusCode(200, ApiResponse.GetSuccess(result));
+                else return StatusCode(400, ApiResponse.BadRequest());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ApiResponse.InternalServerError(ex));
+            }
+        }
+
+        [HttpPost("friend")]
+        public async Task<IActionResult> AddFriend([FromBody] DTO_User_AddFriend request)
+        {
+            try
+            {
+                var result = await _service.AddFriend(request);
+
                 if (result) return StatusCode(200, ApiResponse.PostSuccess());
                 else return StatusCode(400, ApiResponse.BadRequest());
             }

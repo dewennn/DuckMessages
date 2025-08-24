@@ -5,6 +5,125 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/v1/text-message": {
+      "get": {
+        "tags": [
+          "TextMessage"
+        ],
+        "parameters": [
+          {
+            "name": "SenderId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "ReceiverId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TextMessage"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_TextMessage_POST"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_TextMessage_POST"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_TextMessage_POST"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TextMessage"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_TextMessage_PUT"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_TextMessage_PUT"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_TextMessage_PUT"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/text-message/mark-as-read": {
+      "post": {
+        "tags": [
+          "TextMessage"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_TextMessage_MarkAsRead"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_TextMessage_MarkAsRead"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_TextMessage_MarkAsRead"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/v1/user/login": {
       "post": {
         "tags": [
@@ -14,17 +133,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DTO_User_GET_Request"
+                "$ref": "#/components/schemas/DTO_User_Login"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/DTO_User_GET_Request"
+                "$ref": "#/components/schemas/DTO_User_Login"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/DTO_User_GET_Request"
+                "$ref": "#/components/schemas/DTO_User_Login"
               }
             }
           }
@@ -45,17 +164,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DTO_User_POST"
+                "$ref": "#/components/schemas/DTO_User_Register"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/DTO_User_POST"
+                "$ref": "#/components/schemas/DTO_User_Register"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/DTO_User_POST"
+                "$ref": "#/components/schemas/DTO_User_Register"
               }
             }
           }
@@ -67,41 +186,53 @@
         }
       }
     },
-    "/WeatherForecast": {
+    "/api/v1/user/friend": {
       "get": {
         "tags": [
-          "WeatherForecast"
+          "User"
         ],
-        "operationId": "GetWeatherForecast",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_User_AddFriend"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_User_AddFriend"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTO_User_AddFriend"
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -109,7 +240,63 @@
   },
   "components": {
     "schemas": {
-      "DTO_User_GET_Request": {
+      "DTO_TextMessage_MarkAsRead": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTO_TextMessage_POST": {
+        "type": "object",
+        "properties": {
+          "senderId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "receiverId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTO_TextMessage_PUT": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTO_User_AddFriend": {
+        "type": "object",
+        "properties": {
+          "senderId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "receiverId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTO_User_Login": {
         "type": "object",
         "properties": {
           "phoneNumber": {
@@ -123,7 +310,7 @@
         },
         "additionalProperties": false
       },
-      "DTO_User_POST": {
+      "DTO_User_Register": {
         "type": "object",
         "properties": {
           "displayName": {
@@ -135,29 +322,6 @@
             "nullable": true
           },
           "password": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WeatherForecast": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "summary": {
             "type": "string",
             "nullable": true
           }

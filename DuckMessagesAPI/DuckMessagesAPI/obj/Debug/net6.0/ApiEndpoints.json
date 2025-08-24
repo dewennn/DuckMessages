@@ -1,7 +1,108 @@
 [
   {
+    "ContainingType": "DuckMessagesAPI.Controllers.TextMessageController",
+    "Method": "TextMessage_GET",
+    "RelativePath": "api/v1/text-message",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SenderId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "ReceiverId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuckMessagesAPI.Controllers.TextMessageController",
+    "Method": "TextMessage_POST",
+    "RelativePath": "api/v1/text-message",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DuckMessagesAPI.DTO.DTO_TextMessage_POST",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuckMessagesAPI.Controllers.TextMessageController",
+    "Method": "TextMessage_PUT",
+    "RelativePath": "api/v1/text-message",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DuckMessagesAPI.DTO.DTO_TextMessage_PUT",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuckMessagesAPI.Controllers.TextMessageController",
+    "Method": "TextMessage_MarkAsRead",
+    "RelativePath": "api/v1/text-message/mark-as-read",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DuckMessagesAPI.DTO.DTO_TextMessage_MarkAsRead",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DuckMessagesAPI.Controllers.UserController",
-    "Method": "GetUser",
+    "Method": "GetFriends",
+    "RelativePath": "api/v1/user/friend",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuckMessagesAPI.Controllers.UserController",
+    "Method": "AddFriend",
+    "RelativePath": "api/v1/user/friend",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DuckMessagesAPI.DTO.DTO_User_AddFriend",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DuckMessagesAPI.Controllers.UserController",
+    "Method": "Login",
     "RelativePath": "api/v1/user/login",
     "HttpMethod": "POST",
     "IsController": true,
@@ -9,7 +110,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "DuckMessagesAPI.DTO.DTO_User_GET_Request",
+        "Type": "DuckMessagesAPI.DTO.DTO_User_Login",
         "IsRequired": true
       }
     ],
@@ -17,7 +118,7 @@
   },
   {
     "ContainingType": "DuckMessagesAPI.Controllers.UserController",
-    "Method": "CreateUser",
+    "Method": "Register",
     "RelativePath": "api/v1/user/register",
     "HttpMethod": "POST",
     "IsController": true,
@@ -25,31 +126,10 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "DuckMessagesAPI.DTO.DTO_User_POST",
+        "Type": "DuckMessagesAPI.DTO.DTO_User_Register",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DuckMessagesAPI.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[DuckMessagesAPI.WeatherForecast, DuckMessagesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]

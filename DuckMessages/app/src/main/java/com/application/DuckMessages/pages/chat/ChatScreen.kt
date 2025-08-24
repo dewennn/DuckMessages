@@ -23,6 +23,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -40,30 +41,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.application.DuckMessages.Footer
 import com.application.DuckMessages.R
 import com.application.DuckMessages.viewModels.Chat
 import com.application.DuckMessages.ui.components.ChatPreview
 
-@Composable
-fun FilterButton(modifier: Modifier = Modifier){
-    Button(
-        onClick = { /* ... */ },
-        shape = CircleShape,
-        border = BorderStroke(1.dp, Color.Gray),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,
-            contentColor = Color.Gray
-        )
-    ) {
-        Text("Test")
-    }
-}
 
 @Composable
 fun ChatScreen(
     navController: NavHostController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    userId: String,
+    displayName: String
 ) {
     // TODO pull data and connect to lazy column with pagination feature
     val sampleChats = listOf(
@@ -72,10 +60,8 @@ fun ChatScreen(
         Chat("Charlie", "Lunch tomorrow?", "Yesterday"),
     )
 
-    // State for the search bar text
+    // State for the UI
     var searchText by remember { mutableStateOf("") }
-
-    // State for the dropdown menu
     var showMenu by remember { mutableStateOf(false) }
 
     Column(
@@ -108,14 +94,6 @@ fun ChatScreen(
 
                     Spacer(modifier = Modifier.weight(1f))
 
-                    IconButton(onClick = { /* TODO: Handle camera click */ }) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.camera_icon),
-                            contentDescription = "Camera",
-                            tint = Color.Black
-                        )
-                    }
-
                     Box {
                         IconButton(onClick = { showMenu = !showMenu }) {
                             Icon(
@@ -133,7 +111,7 @@ fun ChatScreen(
                                 onClick = { /* Handle "Read all" click */ }
                             )
                             DropdownMenuItem(
-                                text = { Text("Settings") },
+                                text = { Text("Add duck") },
                                 onClick = { /* Handle "Settings" click */ }
                             )
                         }
@@ -145,74 +123,17 @@ fun ChatScreen(
             LazyColumn() {
                 // -- SEARCH BAR --
                 item{
-                    TextField(
-                        value = searchText,
-                        onValueChange = { searchText = it },
-                        placeholder = { Text("Search") },
-                        leadingIcon = {
-                            Icon(
-                                imageVector = Icons.Default.Search,
-                                contentDescription = "Search Icon"
-                            )
-                        },
-
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .defaultMinSize(minHeight = 48.dp)
-                            .clip(CircleShape)
-                        ,
-
-                        colors = TextFieldDefaults.colors(
-                            // Set the background color
-                            unfocusedContainerColor = Color(red = 220, blue = 220, green = 220),
-                            focusedContainerColor = Color(red = 220, blue = 220, green = 220),
-
-                            // Remove the indicator line
-                            focusedIndicatorColor = Color.Transparent,
-                            unfocusedIndicatorColor = Color.Transparent,
-                        ),
-
-                        singleLine = false
+                    Text(
+                        text = "Hi $displayName!",
+                        color = MaterialTheme.colorScheme.tertiary,
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.SemiBold
                     )
                 }
 
                 item{
                     Spacer(modifier = Modifier.height(12.dp))
                 }
-
-                // -- FILTERS --
-//                item{
-//                    LazyRow (
-//                        modifier = Modifier
-//                            .fillMaxWidth()
-//                        ,
-//                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-//                    ){
-//                        items(10){
-//                            FilterButton()
-//                        }
-//                        item{
-//                            Button(
-//                                onClick = { /* ... */ },
-//                                shape = CircleShape,
-//                                border = BorderStroke(1.dp, Color.Gray),
-//                                colors = ButtonDefaults.buttonColors(
-//                                    containerColor = Color.Transparent,
-//                                    contentColor = Color.Gray
-//                                )
-//                            ) {
-//                                Icon(
-//                                    imageVector = Icons.Default.Add,
-//                                    contentDescription = "Add item"
-//                                )
-//                            }
-//                        }
-//                    }
-//                }
-//
-//                item{
-//                    Spacer(modifier = Modifier.height(12.dp))
-//                }
 
                 // -- LIST OF CHATS --
                 items(100) {
@@ -222,11 +143,5 @@ fun ChatScreen(
                 }
             }
         }
-
-        // -- FOOTER --
-        Footer(
-            currentPage = "chats",
-            navController = navController
-        )
     }
 }

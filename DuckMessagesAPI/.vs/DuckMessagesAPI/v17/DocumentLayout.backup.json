@@ -3,6 +3,34 @@
   "WorkspaceRootPath": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|c:\\users\\derre\\source\\repos\\duckmessagesapi\\duckmessagesapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|solutionrelative:duckmessagesapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|c:\\users\\derre\\source\\repos\\duckmessagesapi\\duckmessagesapi\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|solutionrelative:duckmessagesapi\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|c:\\users\\derre\\source\\repos\\duckmessagesapi\\duckmessagesapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|solutionrelative:duckmessagesapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|c:\\users\\derre\\source\\repos\\duckmessagesapi\\duckmessagesapi\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|solutionrelative:duckmessagesapi\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|c:\\users\\derre\\source\\repos\\duckmessagesapi\\duckmessagesapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|solutionrelative:duckmessagesapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|c:\\users\\derre\\source\\repos\\duckmessagesapi\\duckmessagesapi\\dto\\dto_user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|solutionrelative:duckmessagesapi\\dto\\dto_user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|c:\\users\\derre\\source\\repos\\duckmessagesapi\\duckmessagesapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|solutionrelative:duckmessagesapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|c:\\users\\derre\\source\\repos\\duckmessagesapi\\duckmessagesapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9C9A8ECB-80C2-4311-8AD5-170564601240}|DuckMessagesAPI\\DuckMessagesAPI.csproj|solutionrelative:duckmessagesapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,15 +58,108 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Program.cs",
               "RelativeDocumentMoniker": "DuckMessagesAPI\\Program.cs",
               "ToolTip": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Program.cs",
               "RelativeToolTip": "DuckMessagesAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-23T15:49:34.162Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "DuckMessagesAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\appsettings.json",
+              "RelativeToolTip": "DuckMessagesAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-23T15:52:41.963Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DTO_User.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\DTO\\DTO_User.cs",
+              "RelativeDocumentMoniker": "DuckMessagesAPI\\DTO\\DTO_User.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\DTO\\DTO_User.cs",
+              "RelativeToolTip": "DuckMessagesAPI\\DTO\\DTO_User.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswDUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T08:04:19.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "DuckMessagesAPI\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "DuckMessagesAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T07:44:04.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "DuckMessagesAPI\\Interfaces\\IUserService.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "DuckMessagesAPI\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T07:44:17.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "DuckMessagesAPI\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Services\\UserService.cs",
+              "RelativeToolTip": "DuckMessagesAPI\\Services\\UserService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAMwBIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T07:44:30.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "DuckMessagesAPI\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "DuckMessagesAPI\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T07:44:16.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "DuckMessagesAPI\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\derre\\source\\repos\\DuckMessagesAPI\\DuckMessagesAPI\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "DuckMessagesAPI\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAwwCcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T07:44:28.545Z",
               "EditorCaption": ""
             }
           ]

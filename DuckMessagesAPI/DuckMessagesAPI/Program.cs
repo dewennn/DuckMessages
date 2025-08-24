@@ -1,5 +1,5 @@
+using DuckMessagesAPI.Data;
 using DuckMessagesAPI.Interfaces;
-using DuckMessagesAPI.Models;
 using DuckMessagesAPI.Repositories;
 using DuckMessagesAPI.Services;
 
@@ -7,11 +7,28 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Define a name for the CORS policy
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+// Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          // For development, allowing any origin is common.
+                          // For production, you should replace AllowAnyOrigin() with
+                          // WithOrigins("https://your-frontend-domain.com").
+                          policy.AllowAnyOrigin()
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                      });
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApplicationDbContext>();
+builder.Services.AddDbContext<DuckMessagesContext>();
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IUserService, UserService>();

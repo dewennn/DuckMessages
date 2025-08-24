@@ -1,6 +1,6 @@
 package com.application.DuckMessages.network.model
 
-data class AuthRequest(
-    val email: String,
+data class LoginRequest(
+    val phoneNumber: String,
     val password: String
 )

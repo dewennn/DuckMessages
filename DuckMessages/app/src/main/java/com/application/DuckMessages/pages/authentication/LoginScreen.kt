@@ -21,6 +21,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.rememberNavController
 import com.application.DuckMessages.R
 import com.application.DuckMessages.network.viewmodel.AuthState
 import com.application.DuckMessages.network.viewmodel.AuthViewModel
@@ -28,18 +29,22 @@ import com.application.DuckMessages.network.viewmodel.AuthViewModel
 @Composable
 fun LoginScreen(
     authViewModel: AuthViewModel,
-    onNavigateToRegister: () -> Unit
+    onNavigateToRegister: () -> Unit,
+    onLoginSuccess: (userId: String, displayName: String) -> Unit
 ) {
-    var email by remember { mutableStateOf("") }
+    var phoneNumber by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
     val authState by authViewModel.authState.collectAsState()
     val context = LocalContext.current
 
     LaunchedEffect(authState) {
         when (val state = authState) {
             is AuthState.Success -> {
-                Toast.makeText(context, "Login Successful! Token: ${state.data}", Toast.LENGTH_LONG).show()
-                authViewModel.resetState() // Reset state after handling
+                Toast.makeText(context, "Login Successful!", Toast.LENGTH_LONG).show()
+                authViewModel.resetState()
+
+                onLoginSuccess(state.data.userId, state.data.displayName)
             }
             is AuthState.Error -> {
                 Toast.makeText(context, state.message, Toast.LENGTH_LONG).show()
@@ -85,11 +90,11 @@ fun LoginScreen(
             )
             Spacer(modifier = Modifier.height(32.dp))
 
-            // Email input
+            // Phone number input
             OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
-                label = { Text("Email") },
+                value = phoneNumber,
+                onValueChange = { phoneNumber = it },
+                label = { Text("Phone Number") },
                 modifier = Modifier.fillMaxWidth(),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color.Gray,
@@ -114,7 +119,9 @@ fun LoginScreen(
 
             // Login Button
             Button(
-                onClick = { authViewModel.login(email, password) },
+                onClick = {
+                    authViewModel.login(phoneNumber, password)
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp),
@@ -124,10 +131,16 @@ fun LoginScreen(
                     containerColor = MaterialTheme.colorScheme.tertiary
                 )
             ) {
-                if (authState == AuthState.Loading) {
-                    CircularProgressIndicator(color = Color.White)
-                } else {
-                    Text("Login", fontSize = 18.sp, color = Color.White)
+                when (authState) {
+                    is AuthState.Loading -> {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                            color = Color.White
+                        )
+                    }
+                    else -> {
+                        Text("Login", fontSize = 18.sp, color = Color.White)
+                    }
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))

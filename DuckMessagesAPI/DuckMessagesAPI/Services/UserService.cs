@@ -11,14 +11,24 @@ namespace DuckMessagesAPI.Services
             _repository = repository;
         }
 
-        public async Task<DTO_User_GET_Response?> GetUser(DTO_User_GET_Request request)
+        public async Task<DTO_User_Auth_Response?> Login(DTO_User_Login request)
         {
-            return await _repository.GetUser(request);
+            return await _repository.Login(request);
         }
 
-        public async Task<bool> PostUser(DTO_User_POST request)
+        public async Task<DTO_User_Auth_Response?> Register(DTO_User_Register request)
         {
-            return await _repository.PostUser(request);
+            return await _repository.Register(request);
+        }
+
+        public async Task<List<DTO_User_GetFriends_Response>> GetFriends(Guid userId)
+        {
+            return await _repository.GetFriends(userId);
+        }
+
+        public async Task<bool> AddFriend(DTO_User_AddFriend request)
+        {
+            return await _repository.AddFriend(request);
         }
     }
 }

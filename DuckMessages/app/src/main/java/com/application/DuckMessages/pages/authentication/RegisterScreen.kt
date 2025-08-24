@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -30,15 +31,17 @@ fun RegisterScreen(
     authViewModel: AuthViewModel,
     onNavigateToLogin: () -> Unit
 ) {
-    var email by remember { mutableStateOf("") }
+    var displayName by remember { mutableStateOf("") }
+    var phoneNumber by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
     val authState by authViewModel.authState.collectAsState()
     val context = LocalContext.current
 
     LaunchedEffect(authState) {
         when (val state = authState) {
             is AuthState.Success -> {
-                Toast.makeText(context, "Registration Successful: ${state.data}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Registration Success!", Toast.LENGTH_LONG).show()
                 authViewModel.resetState()
                 onNavigateToLogin() // Navigate to login after successful registration
             }
@@ -86,16 +89,30 @@ fun RegisterScreen(
             )
             Spacer(modifier = Modifier.height(32.dp))
 
-            // Email input
+            // Display Name input
             OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
-                label = { Text("Email") },
+                value = displayName,
+                onValueChange = { displayName = it },
+                label = { Text("Display Name") },
                 modifier = Modifier.fillMaxWidth(),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color.Gray,
-                    focusedLabelColor = Color.Gray
+                    focusedLabelColor = Color.Gray,
                 )
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Phone Number input
+            OutlinedTextField(
+                value = phoneNumber,
+                onValueChange = { phoneNumber = it },
+                label = { Text("Phone Number") },
+                modifier = Modifier.fillMaxWidth(),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Gray,
+                    focusedLabelColor = Color.Gray,
+                ),
+                keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Phone)
             )
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -115,7 +132,7 @@ fun RegisterScreen(
 
             // Register button
             Button(
-                onClick = { authViewModel.register(email, password) },
+                onClick = { authViewModel.register(displayName, phoneNumber, password) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp),
