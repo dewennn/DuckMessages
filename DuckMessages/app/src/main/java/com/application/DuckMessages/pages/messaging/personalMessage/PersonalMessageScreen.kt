@@ -19,6 +19,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -33,25 +34,32 @@ import com.application.DuckMessages.R
 import com.application.DuckMessages.pages.messaging.IncomingMessageBubble
 import com.application.DuckMessages.pages.messaging.SentMessageBubble
 import com.application.DuckMessages.viewModels.Message
+import androidx.compose.foundation.layout.Box
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import com.application.DuckMessages.network.viewmodel.MessageState
+import com.application.DuckMessages.network.viewmodel.MessageViewModel
+
+import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 @Composable
 fun PersonalMessageScreen(
     navController: NavHostController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    senderId: String = "",
+    receiverId: String = "",
+    displayName: String = "",
+    messageViewModel: MessageViewModel
 ){
-    // TODO update this variable to use values from the remote API
-    val name = "Duck Doe"
-    val profilePictureUrl = ""
+    val messageState by messageViewModel.messageState.collectAsState()
 
-    // TODO pull data and connect to lazy column with pagination feature
-    val messages = listOf(
-        Message("Hey, how's it going?", "8:18 PM", true),
-        Message("Pretty good! Just working on this Compose stuff.", "8:19 PM", false, isRead = true),
-        Message("Nice! Is it hard?", "8:19 PM", true),
-        Message("A bit at first, but it's really powerful once you get the hang of it.", "8:20 PM", false, isRead = true),
-        Message("You should try it.", "8:20 PM", false, isRead = true),
-        Message("I will!", "8:21 PM", true)
-    )
+    LaunchedEffect(key1 = senderId, key2 = receiverId) {
+        messageViewModel.fetchMessages(senderId = senderId, receiverId = receiverId)
+    }
 
     Column(
         modifier = modifier
@@ -84,29 +92,13 @@ fun PersonalMessageScreen(
                 )
                 Spacer(modifier = Modifier.size(8.dp))
                 Text(
-                    text = "Unknown user",
+                    text = displayName,
                     color = Color.Black,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal
                 )
 
                 Spacer(modifier = Modifier.weight(1f))
-
-                IconButton(onClick = { /* TODO: Handle camera click */ }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.camera_icon),
-                        contentDescription = "Camera",
-                        tint = Color.Black
-                    )
-                }
-
-                IconButton(onClick = { /* TODO: Handle call click */ }) {
-                    Icon(
-                        imageVector = Icons.Default.Call,
-                        contentDescription = "Voice Call",
-                        tint = Color.Black
-                    )
-                }
 
                 IconButton(onClick = { /* TODO: Handle more options click */ }) {
                     Icon(
@@ -119,30 +111,57 @@ fun PersonalMessageScreen(
         }
 
         // -- BODY --
-        LazyColumn(
+        Box(
             modifier = Modifier
                 .weight(1f)
-                .padding(horizontal = 12.dp)
-            ,
-            reverseLayout = true
+                .padding(horizontal = 12.dp),
+            contentAlignment = Alignment.Center
         ) {
-            items(messages.reversed()) { message ->
-                if (message.isIncoming) {
-                    IncomingMessageBubble(
-                        text = message.text,
-                        timestamp = message.timestamp
-                    )
-                } else {
-                    SentMessageBubble(
-                        text = message.text,
-                        timestamp = message.timestamp,
-                        isRead = message.isRead
-                    )
+            when (val state = messageState) {
+                is MessageState.Loading -> {
+                    CircularProgressIndicator()
+                }
+                is MessageState.Error -> {
+                    Text(text = state.message)
+                }
+                is MessageState.Success -> {
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        reverseLayout = true
+                    ) {
+                        items(state.messages) { message ->
+                            // Your API's 'isSender' tells you if YOU sent the message
+                            if (message.isSender) {
+                                SentMessageBubble(
+                                    text = message.content ?: "test",
+                                    timestamp = message.sentAt ?: "",
+                                    isRead = message.isRead
+                                )
+                            } else {
+                                // If you are not the sender, it's an incoming message
+                                IncomingMessageBubble(
+                                    text = message.content ?: "test",
+                                    timestamp = message.sentAt ?: ""
+                                )
+                            }
+                        }
+                    }
+                }
+                is MessageState.Idle -> {
+                    // Idle state, you can show a loading indicator or nothing
                 }
             }
         }
 
         // -- INPUT --
-        PersonalMessageInputBar()
+        PersonalMessageInputBar(
+            onSendMessage = { messageContent ->
+                messageViewModel.sendMessage(
+                    senderId = senderId,
+                    receiverId = receiverId,
+                    content = messageContent
+                )
+            }
+        )
     }
 }

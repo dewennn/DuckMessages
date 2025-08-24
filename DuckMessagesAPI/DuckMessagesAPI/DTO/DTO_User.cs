@@ -44,8 +44,8 @@ namespace DuckMessagesAPI.DTO
         public Guid FriendId { get; set; }
         public string DisplayName { get; set; }
         public string? MessagePreview { get; set; }
-        public DateTime? Timestamp { get; set; }
-        public void Deconstruct(out Guid FriendId, out string DisplayName, out string? MessagePreview, out DateTime? Timestamp)
+        public string? Timestamp { get; set; }
+        public void Deconstruct(out Guid FriendId, out string DisplayName, out string? MessagePreview, out string? Timestamp)
         {
             FriendId = this.FriendId;
             DisplayName = this.DisplayName;
@@ -57,11 +57,11 @@ namespace DuckMessagesAPI.DTO
     public class DTO_User_AddFriend
     {
         public Guid SenderId { get; set; }
-        public Guid ReceiverId { get; set; }
-        public void Deconstruct(out Guid SenderId, out Guid ReceiverId)
+        public string ReceiverPhoneNumber { get; set; }
+        public void Deconstruct(out Guid SenderId, out string ReceiverPhoneNumber)
         {
             SenderId = this.SenderId;
-            ReceiverId = this.ReceiverId;
+            ReceiverPhoneNumber = this.ReceiverPhoneNumber;
         }
     }
 }

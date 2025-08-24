@@ -15,7 +15,7 @@
     {
         public long MessageId {  get; set; }
         public string Content { get; set; }
-        public DateTime SentAt { get; set; }
+        public string SentAt { get; set; }
         public bool IsRead { get; set; }
         public bool IsSender { get; set; }
     }

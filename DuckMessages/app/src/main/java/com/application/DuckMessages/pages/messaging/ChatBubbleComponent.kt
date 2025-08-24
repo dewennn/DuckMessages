@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -45,7 +46,7 @@ fun SentMessageBubble(
             modifier = Modifier
                 .widthIn(min = 100.dp, max = 280.dp)
                 .background(
-                    color = MaterialTheme.colorScheme.onPrimary,
+                    color = MaterialTheme.colorScheme.primary,
                     shape = RoundedCornerShape(8.dp)
                 )
                 .padding(vertical = 4.dp)
@@ -53,11 +54,12 @@ fun SentMessageBubble(
 //                .clip(SentBubbleShape())
 //                .padding(start = 12.dp, end = 24.dp)
         ) {
-            Column(horizontalAlignment = Alignment.End) {
+            Column(horizontalAlignment = Alignment.End, modifier = Modifier.widthIn(min = 100.dp)) {
                 Text(
                     text = text,
                     fontSize = 16.sp,
-                    color = Color.Black
+                    color = Color.Black,
+                    textAlign = TextAlign.End
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -75,7 +77,6 @@ fun SentMessageBubble(
                         imageVector = Icons.Default.Check,
                         contentDescription = "Read status",
                         modifier = Modifier.size(16.dp),
-                        // ✅ Change tint based on read status
                         tint = if (isRead) Color(0xFF00B2FF) else Color.Gray
                     )
                 }

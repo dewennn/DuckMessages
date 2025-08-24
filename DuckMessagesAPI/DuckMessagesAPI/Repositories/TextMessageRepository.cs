@@ -18,21 +18,24 @@ namespace DuckMessagesAPI.Repositories
         {
             var (SenderId, ReceiverId) = request;
 
-            return await _context.TextMessages
+            var query = await _context.TextMessages
                 .Where(i =>
                     (i.SenderId.Equals(SenderId) && i.ReceiverId.Equals(ReceiverId)) ||
                     (i.SenderId.Equals(ReceiverId) && i.ReceiverId.Equals(SenderId))
                 )
-                .Select(i => new DTO_TextMessage_GET_Response
+                .OrderByDescending(i => i.SentAt)
+                .ToListAsync();
+
+            return query.
+                Select(i => new DTO_TextMessage_GET_Response
                 {
                     MessageId = i.MessageId,
                     Content = i.Content,
                     IsSender = i.SenderId.Equals(SenderId),
-                    SentAt = i.SentAt,
+                    SentAt = i.SentAt.ToString("t"),
                     IsRead = i.IsRead,
                 })
-                .OrderByDescending(i => i.SentAt)
-                .ToListAsync();
+                .ToList();
         }
 
         public async Task<bool> TextMessage_POST(DTO_TextMessage_POST request)

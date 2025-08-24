@@ -14,8 +14,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.application.DuckMessages.network.RetrofitInstance
 import com.application.DuckMessages.network.repository.AuthRepository
+import com.application.DuckMessages.network.repository.FriendRepository
+import com.application.DuckMessages.network.repository.MessageRepository
 import com.application.DuckMessages.network.viewmodel.AuthViewModel
 import com.application.DuckMessages.network.viewmodel.AuthViewModelFactory
+import com.application.DuckMessages.network.viewmodel.FriendViewModel
+import com.application.DuckMessages.network.viewmodel.FriendViewModelFactory
+import com.application.DuckMessages.network.viewmodel.MessageViewModel
+import com.application.DuckMessages.network.viewmodel.MessageViewModelFactory
 import com.application.DuckMessages.pages.authentication.LoginScreen
 import com.application.DuckMessages.pages.authentication.RegisterScreen
 import com.application.DuckMessages.pages.messaging.personalMessage.PersonalMessageScreen
@@ -29,8 +35,15 @@ class MainActivity : ComponentActivity() {
             DuckMessagesTheme {
                 val navController = rememberNavController()
 
+                // View Models
                 val authViewModel: AuthViewModel = viewModel(
                     factory = AuthViewModelFactory(AuthRepository(RetrofitInstance.api))
+                )
+                val friendViewModel: FriendViewModel = viewModel(
+                    factory = FriendViewModelFactory(FriendRepository(RetrofitInstance.api))
+                )
+                val messageViewModel: MessageViewModel = viewModel(
+                    factory = MessageViewModelFactory(MessageRepository(RetrofitInstance.api))
                 )
 
                 // -- ROUTES --
@@ -69,11 +82,11 @@ class MainActivity : ComponentActivity() {
                     ){ backStackEntry ->
                         val userId = backStackEntry.arguments?.getString("userId") ?: ""
                         val displayName = backStackEntry.arguments?.getString("displayName") ?: ""
-                        ChatScreen(navController, userId = userId, displayName = displayName)
+                        ChatScreen(navController, userId = userId, displayName = displayName, friendViewModel = friendViewModel)
                     }
 
                     composable(
-                        route = "personal_message",
+                        route = "personal_message/{senderId}/{receiverId}/{displayName}",
                         enterTransition = {
                             slideInHorizontally (
                                 initialOffsetX = { it },
@@ -98,8 +111,11 @@ class MainActivity : ComponentActivity() {
                                 animationSpec = tween(350)
                             )
                         }
-                    ){
-                        PersonalMessageScreen(navController)
+                    ){ backStackEntry ->
+                        val senderId = backStackEntry.arguments?.getString("senderId") ?: ""
+                        val receiverId = backStackEntry.arguments?.getString("receiverId") ?: ""
+                        val displayName = backStackEntry.arguments?.getString("displayName") ?: ""
+                        PersonalMessageScreen(navController, senderId = senderId, receiverId = receiverId, displayName = displayName, messageViewModel = messageViewModel)
                     }
                 }
             }

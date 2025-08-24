@@ -289,9 +289,9 @@
             "type": "string",
             "format": "uuid"
           },
-          "receiverId": {
+          "receiverPhoneNumber": {
             "type": "string",
-            "format": "uuid"
+            "nullable": true
           }
         },
         "additionalProperties": false

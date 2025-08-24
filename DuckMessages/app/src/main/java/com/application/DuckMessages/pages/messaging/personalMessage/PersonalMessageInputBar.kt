@@ -29,7 +29,10 @@ import androidx.compose.ui.unit.dp
 import com.application.DuckMessages.R
 
 @Composable
-fun PersonalMessageInputBar(modifier: Modifier = Modifier) {
+fun PersonalMessageInputBar(
+    modifier: Modifier = Modifier,
+    onSendMessage: (String) -> Unit
+) {
     var text by remember { mutableStateOf("") }
 
     Row(
@@ -60,54 +63,64 @@ fun PersonalMessageInputBar(modifier: Modifier = Modifier) {
 
             singleLine = false,
 
-            leadingIcon = {
-                IconButton(onClick = { /*TODO: Emoji picker*/ }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.smiling_heart_icon),
-                        contentDescription = "Emoji"
-                    )
-                }
-            },
-
-            trailingIcon = {
-                Row {
-                    IconButton(onClick = { /*TODO: Attach file*/ }) {
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = "Attach"
-                        )
-                    }
-                    IconButton(onClick = { /*TODO: Camera*/ }) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.camera_icon),
-                            contentDescription = "Camera"
-                        )
-                    }
-                }
-            }
+//            leadingIcon = {
+//                IconButton(onClick = { /*TODO: Emoji picker*/ }) {
+//                    Icon(
+//                        painter = painterResource(id = R.drawable.smiling_heart_icon),
+//                        contentDescription = "Emoji"
+//                    )
+//                }
+//            },
+//
+//            trailingIcon = {
+//                Row {
+//                    IconButton(onClick = { /*TODO: Attach file*/ }) {
+//                        Icon(
+//                            imageVector = Icons.Default.Add,
+//                            contentDescription = "Attach"
+//                        )
+//                    }
+//                    IconButton(onClick = { /*TODO: Camera*/ }) {
+//                        Icon(
+//                            painter = painterResource(id = R.drawable.camera_icon),
+//                            contentDescription = "Camera"
+//                        )
+//                    }
+//                }
+//            }
         )
 
         Spacer(modifier = Modifier.width(8.dp))
 
         // Send or Microphone button
         FloatingActionButton(
-            onClick = { /*TODO: Send message or start recording*/ },
+            onClick = {
+                if (text.isNotBlank()) { // Prevent sending empty messages
+                    onSendMessage(text)  // Call the passed-in function with the current text
+                    text = ""            // Clear the text field after sending
+                }
+            },
             shape = CircleShape,
             containerColor = MaterialTheme.colorScheme.onSecondary,
             contentColor = MaterialTheme.colorScheme.secondary
         ) {
-            // Icon changes based on whether text is empty
-            if (text.isEmpty()) {
-                Icon(
-                    painter = painterResource(R.drawable.mic_icon),
-                    contentDescription = "Record audio"
-                )
-            } else {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.Send,
-                    contentDescription = "Send message"
-                )
-            }
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.Send,
+                contentDescription = "Send message"
+            )
+
+//            // Icon changes based on whether text is empty
+//            if (text.isEmpty()) {
+//                Icon(
+//                    painter = painterResource(R.drawable.mic_icon),
+//                    contentDescription = "Record audio"
+//                )
+//            } else {
+//                Icon(
+//                    imageVector = Icons.AutoMirrored.Filled.Send,
+//                    contentDescription = "Send message"
+//                )
+//            }
         }
     }
 }

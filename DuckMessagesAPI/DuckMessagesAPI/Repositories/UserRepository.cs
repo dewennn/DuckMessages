@@ -31,9 +31,9 @@ namespace DuckMessagesAPI.Repositories
             // if all is checked then return response
             return new DTO_User_Auth_Response
             {
+                UserId = account.UserId,
                 DisplayName = account.DisplayName,
                 PhoneNumber = account.PhoneNumber,
-                // TODO generate and include a JWT token here as well.
             };
         }
 
@@ -74,21 +74,41 @@ namespace DuckMessagesAPI.Repositories
                 .Select(i => i.UserId1 == userId ? i.UserId2 : i.UserId1)
                 .ToListAsync();
 
-            return await _context.Users
+            var temp =  await _context.Users
                 .Where(i => friendList.Contains(i.UserId))
-                .Select(i => new DTO_User_GetFriends_Response
+                .Select(i => new
                 {
                     FriendId = i.UserId,
                     DisplayName = i.DisplayName,
-                    MessagePreview = "...",
-                    Timestamp = null
+                    LastMessage = _context.TextMessages
+                                    .Where(msg => (msg.SenderId == userId && msg.ReceiverId == i.UserId) || (msg.SenderId == i.UserId && msg.ReceiverId == userId))
+                                    .OrderByDescending(msg => msg.SentAt)
+                                    .FirstOrDefault()
                 })
                 .ToListAsync();
+
+            return temp
+                .OrderBy(i => i.LastMessage == null)
+                .ThenByDescending(i => i.LastMessage?.SentAt)
+                .Select(i => new DTO_User_GetFriends_Response
+                {
+                    FriendId = i.FriendId,
+                    DisplayName = i.DisplayName,
+
+                    // If LastMessage is null, use the default string. Otherwise, use its Content.
+                    MessagePreview = i.LastMessage?.Content ?? "Message this duck now!",
+
+                    // If LastMessage is null, the timestamp will also be null.
+                    Timestamp = i.LastMessage?.SentAt.ToString("t")
+                })
+                .ToList();
         }
 
         public async Task<bool> AddFriend(DTO_User_AddFriend request)
         {
-            var (SenderId, ReceiverId) = request;
+            var (SenderId, ReceiverPhoneNumber) = request;
+
+            var ReceiverId = await _context.Users.Where(i => i.PhoneNumber == ReceiverPhoneNumber).Select(i => i.UserId).FirstAsync();
 
             var newRelation = new Data.Models.UserRelationship
             {

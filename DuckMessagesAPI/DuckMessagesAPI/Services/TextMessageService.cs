@@ -7,8 +7,8 @@ namespace DuckMessagesAPI.Services
 {
     public class TextMessageService : ITextMessageService
     {
-        private readonly TextMessageRepository _repository;
-        public TextMessageService(TextMessageRepository repository)
+        private readonly ITextMessageRepository _repository;
+        public TextMessageService(ITextMessageRepository repository)
         {
             _repository = repository;
         }

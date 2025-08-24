@@ -2,6 +2,7 @@ using DuckMessagesAPI.Data;
 using DuckMessagesAPI.Interfaces;
 using DuckMessagesAPI.Repositories;
 using DuckMessagesAPI.Services;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<ITextMessageService, TextMessageService>();
+builder.Services.AddScoped<ITextMessageRepository, TextMessageRepository>();
 
 var app = builder.Build();
 
